@@ -7,22 +7,20 @@
 </head>
 <body>
     <fieldset>
-        <legend>Name</legend>
+        <legend>Email</legend>
         <form method="POST" action="">
-            <input type="text" name="name" id="" value="<?php
+            <input type="text" name="email" id="" value="<?php
     if(isset($_POST['submit'])){
-		$name = $_POST['name'];
+		$name = $_POST['email'];
 		echo $name;	
 	}else{
-		echo "enter a name";
+		echo "Enter a Email";
 	}
-?> "> <br>
+?>"> <br>
             <hr>
             <input type="submit" name="submit" id="" value="Submit">
         </form>
     </fieldset>
 </body>
 </html>
-
-
 
