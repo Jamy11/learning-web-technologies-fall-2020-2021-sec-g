@@ -7,9 +7,9 @@
 </head>
 <body>
     <fieldset>
-        <legend>Name</legend>
+        <legend>Email</legend>
         <form method="POST" action="">
-            <input type="text" name="name" id=""> <br>
+            <input type="text" name="email" id=""> <br>
             <hr>
             <input type="submit" name="submit" id="" value="Submit">
         </form>
@@ -19,10 +19,9 @@
 
 <?php
     if(isset($_POST['submit'])){
-		$name = $_POST['name'];
+		$name = $_POST['email'];
 		echo $name. "<br>";	
 	}else{
-		echo "enter a name";
+		echo "Enter a Email";
 	}
 ?>
-
