@@ -22,7 +22,7 @@
     if(isset($_POST['submit']))
     {
         $n = $_POST['name'];
-
+        $j ='';
         if(!empty($n))
         {
             if(strlen($n)>1)
@@ -34,11 +34,12 @@
                     {
                         if(($ks>='A' && $ks<='z') || $ks =='.' || $ks == '-')
                         {
-                            echo "$ks";
+                            $j = $j.$ks;
                         }
                         else
                         {
                             echo '<br>'.'Cant be any number or special Char';
+                            $j = '';
                             break;
                         }
                     }
@@ -59,7 +60,8 @@
         else
         {
             echo "Please input your name";
-        }  
+        }
+        echo $j.'<br>';  
     }
 
 ?>

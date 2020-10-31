@@ -101,8 +101,8 @@
 
 if(isset($_POST['submit']))
 {
-    $n = $_POST['name'];
-
+        $n = $_POST['name'];
+        $j ='';
         if(!empty($n))
         {
             if(strlen($n)>1)
@@ -114,34 +114,34 @@ if(isset($_POST['submit']))
                     {
                         if(($ks>='A' && $ks<='z') || $ks =='.' || $ks == '-')
                         {
-                            echo "$ks";
+                            $j = $j.$ks;
                         }
                         else
                         {
-                            echo '<br>'.'Cant be any number or special Char'.'<br>';
+                            echo '<br>'.'Cant be any number or special Char';
+                            $j = '';
                             break;
                         }
                     }
                 }
                 else
                 {
-                    echo "Please use 1st letter betweeen A-z".'<br>';
+                    echo "Please use 1st letter betweeen A-z";
                 }
 
             }
             else
             {
-                echo 'Please use at least 2 words'.'<br>';
+                echo 'Please use at least 2 words';
             }
             
 
         }
         else
         {
-            echo "Please input your name".'<br>';
+            echo "Please input your name";
         }
-
-        echo '<br>';
+        echo $j.'<br>'; 
         
         $em = $_POST['email'];
         if(!empty($em))
