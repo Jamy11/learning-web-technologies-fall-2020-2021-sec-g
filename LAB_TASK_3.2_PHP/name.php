@@ -38,7 +38,8 @@
                         }
                         else
                         {
-                          break;
+                            echo '<br>'.'Cant be any number or special Char';
+                            break;
                         }
                     }
                 }
