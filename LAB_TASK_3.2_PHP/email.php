@@ -20,11 +20,21 @@
 <?php
     if(isset($_POST['submit']))
     {
-		$name = $_POST['email'];
-		echo $name. "<br>";	
+        $em = $_POST['email'];
+        if(!empty($em))
+        {
+            if(filter_var($em, FILTER_VALIDATE_EMAIL)==true)
+            {
+                echo 'Valid Email adress'.'<br>' .$em;
+            }
+            else
+            {
+                echo "Please enter a valid email adress";
+            }
+        }
+        else{
+            echo "Email cant be empty";
+        }
     }
-    else
-    {
-		echo "Enter a Email";
-	}
+    
 ?>
