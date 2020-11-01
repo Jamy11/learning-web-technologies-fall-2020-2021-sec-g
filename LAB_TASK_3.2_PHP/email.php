@@ -18,23 +18,35 @@
 </html>
 
 <?php
-    if(isset($_POST['submit']))
+
+
+if(isset($_POST['submit']))
+{
+    $email = $_POST["email"];
+    $atSign = strpos($email, "@");
+    $lastDot = strripos($email, ".");
+
+
+    if(!empty($_POST["email"]))
     {
-        $em = $_POST['email'];
-        if(!empty($em))
+        if($atSign > 0 && $email[$atSign+1] != "." && $lastDot > $atSign+1 && !strpos($email, " ") && !strpos($email, "..") && strlen($email) > ($lastDot+1))
         {
-            if(filter_var($em, FILTER_VALIDATE_EMAIL)==true)
-            {
-                echo 'Valid Email adress'.'<br>' .$em;
-            }
-            else
-            {
-                echo "Please enter a valid email adress";
-            }
+            echo "Your email is $email";
         }
-        else{
-            echo "Email cant be empty";
+        else
+        {
+            echo "Invalid email!";
         }
+
+    }
+    else
+    {
+        echo "Email field is empty! Please enter your email!";
     }
     
+
+    
+}
+
+
 ?>
