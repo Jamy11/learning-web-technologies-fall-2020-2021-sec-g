@@ -10,7 +10,7 @@ include_once('header.html');
     <title>Registration</title>
 </head>
 <body>
-    <form methode='POST' action="registrationcheck.php">
+    <form method='POST' action="registrationcheck.php">
         <fieldset>
             <legend>Registration</legend>
             <table>

@@ -11,7 +11,6 @@
             header('location: registration.php?msg=null_name');
         }
 
-
         $email = $_POST["email"];
         $atSign = strpos($email, "@");
         $lastDot = strripos($email, ".");
@@ -33,36 +32,16 @@
         }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         $n = $_POST['user_name'];
         $j ='';
+        $count;
         if(!empty($n))
         {
             if(strlen($n)>1)
             {
                 if($n[0]>='A' && $n[0]<='z')
                 {
+                    $count = strlen($n);
                     $k = str_split($n);
                     foreach ($k as $ks)
                     {
@@ -76,6 +55,7 @@
                             $j = '';
                             break;
                         }
+
                     }
                 }
                 else
@@ -95,10 +75,40 @@
         {
             echo "Please input your name";
         }
-        echo $j.'<br>';  
+        echo $j.'<br>'; 
+        
+        $password='';
+        if($_POST['password']==$_POST['con_pas'])
+        {
+            $password = $_POST['password'];
+        }
+        else
+        {
+            echo 'wrong password';
+        }
+
+        if(isset($_POST['gen']))
+        {
+           $gen =  $_POST['gen'];
+            echo $gen;
+        }
+        else
+        {
+            echo "please Select gender";
+        }
+
+        if(!empty($_POST['dob']))
+        {
+            $dobb = $_POST['dob'];
+            echo $_POST['dob'];
+
+        }
+        else{
+            echo 'Please Set dob';
+        }
+
     }
 
-    
     else
     {
 
