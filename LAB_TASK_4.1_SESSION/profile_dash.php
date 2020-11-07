@@ -1,5 +1,12 @@
 <?php
+//session_start();
 include_once('userloginheader.php');
+if(!isset($_SESSION['active']))
+{
+    header('location: public.html');
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,16 +23,16 @@ include_once('userloginheader.php');
                 <h3>Account</h3>
                 <hr>
                 <ul>
-                    <li><a href="">Dashboard</a></li>
+                    <li><a href="profile_dash.php">Dashboard</a></li>
                     <li><a href="">View Profile</a></li>
                     <li><a href="">Edit Profile</a></li>
                     <li><a href="">Change Profile Picture</a></li>
                     <li><a href="">Change Password</a></li>
-                    <li><a href="">Log Out</a></li>
+                    <li><a href="logout.php">Log Out</a></li>
                 </ul>                
             </td>
             <td>
-                <h1>Welcome Bob</h1>
+                <h1>Welcome <?php echo $_SESSION['name']; ?></h1>
             </td>
         </tr>
     </table>

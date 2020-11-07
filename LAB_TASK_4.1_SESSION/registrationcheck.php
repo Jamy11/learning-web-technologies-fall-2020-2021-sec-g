@@ -155,7 +155,7 @@
         }
         else
         {
-            header('location: registration.php');
+            header('location: registration.php?msg=wrong_data');
         }
 
     }

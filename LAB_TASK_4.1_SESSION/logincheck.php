@@ -18,7 +18,7 @@
     }
     else
     {
-        header('location: login.php?msg=invalid_user');
+        header('location: login.php');
     }
 
 

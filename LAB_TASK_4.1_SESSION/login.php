@@ -42,6 +42,16 @@ include_once('header.html');
 </html>
 
 <?php
+    if(isset($_GET['msg']))
+    {
+        if($_GET['msg'] == 'invalid_user')
+        {
+            echo '<h1>Invalid User<h1>';
+        } 
+    }
+?>
+
+<?php
 
     include_once('footer.html');
 ?>
