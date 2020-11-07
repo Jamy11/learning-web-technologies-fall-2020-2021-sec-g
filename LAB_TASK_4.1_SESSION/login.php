@@ -31,7 +31,7 @@ include_once('header.html');
                 <tr>
                     <td colspan="2">
                         <input type="submit" name="submit" value='Submit'>
-                        <a href="">Forget Password</a>
+                        <a href="forgetpassword.php">Forget Password</a>
 
                     </td>
                 </tr>
