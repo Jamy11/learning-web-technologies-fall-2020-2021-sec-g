@@ -27,7 +27,7 @@ if(!isset($_SESSION['active']))
                 <ul>
                     <li><a href="profile_dash.php">Dashboard</a></li>
                     <li><a href="profile_view_profile.php">View Profile</a></li>
-                    <li><a href="">Edit Profile</a></li>
+                    <li><a href="profile_edit_profile.php">Edit Profile</a></li>
                     <li><a href="">Change Profile Picture</a></li>
                     <li><a href="">Change Password</a></li>
                     <li><a href="logout.php">Log Out</a></li>
@@ -39,7 +39,7 @@ if(!isset($_SESSION['active']))
                 Gender : <?php echo $_SESSION['gen']; ?>   <br>
                 Date Of Birth : <?php echo $_SESSION['dob']; ?>  <br>
 
-                <a href="">Edit Profile</a>
+                <a href="profile_edit_profile.php">Edit Profile</a>
             </td>
             <td>
                 <input type="file" name="image" id="" value="">
