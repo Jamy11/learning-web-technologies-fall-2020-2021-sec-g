@@ -32,12 +32,45 @@ if(!isset($_SESSION['active']))
                 </ul>                
             </td>
             <td>
-                <h1>Welcome <?php echo $_SESSION['name']; ?></h1>
+                <form method="POST" action="">
+                    Current Password : <input type="password" name="cu_pas" id=""> <br>
+                    New Password: <input type="password" name="new_pas" id=""> <br>
+                    Confirm New Passord: <input type="password" name="con_pas" id=""> <br>
+
+                    <input type="submit" name='submit' value="Submit">
+                </form>
             </td>
         </tr>
     </table>
 </body>
 </html>
+
+<?php
+
+    if(isset($_POST['submit']))
+    {
+        if($_POST['cu_pas'] == $_SESSION['password'])
+        {
+
+            if($_POST['new_pas']==$_POST['con_pas'])
+            {
+                $_SESSION['password'] = $_POST['new_pas'];
+
+                echo '<h1>Password Changed.</h1>';
+            }
+            else
+            {
+                echo '<h1>Password Dont match.</h1>';
+            }
+        }
+        else
+        {
+            echo '<h1> Wrong Password.</h1>';
+        }
+    }
+
+?>
+
 
 <?php
 

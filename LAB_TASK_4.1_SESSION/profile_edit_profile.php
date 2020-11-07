@@ -30,7 +30,7 @@ if(!isset($_SESSION['active']))
                         <li><a href="profile_view_profile.php">View Profile</a></li>
                         <li><a href="profile_edit_profile.php">Edit Profile</a></li>
                         <li><a href="profile_change_pic.php">Change Profile Picture</a></li>
-                        <li><a href="">Change Password</a></li>
+                        <li><a href="profile_change_pas.php">Change Password</a></li>
                         <li><a href="logout.php">Log Out</a></li>
                     </ul>                
                 </td>
