@@ -9,8 +9,6 @@ if(!isset($_SESSION['active']))
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +17,7 @@ if(!isset($_SESSION['active']))
     <title>Dashboard</title>
 </head>
 <body>
-    <form method="POST" action="profile_edit_check.php">
+    <form action="">
         <table align="center" width='50%' border="1">
             <tr>
                 <td>
@@ -35,33 +33,14 @@ if(!isset($_SESSION['active']))
                     </ul>                
                 </td>
                 <td>
-                    Name : <input type="text" name="pname" id="">  <br>
-                    Email : <input type="text" name="pemail">  <br>
-                    Gender : <input type="radio" name="pgen" id="" value="Male">Male
-                            <input type="radio" name="pgen" id="" value="Female">Female
-                            <input type="radio" name="pgen" id="" value="Other">Other   
-                    <br>
-                    Date Of Birth : <input type="date" name="pdob" id="">  <br>
-
-                    <input type="submit" name="submit" id="">
+                    <input type="file" name="image" id="">
+                    <h1>Change Picture</h1>
                 </td>
             </tr>
         </table>
     </form>
 </body>
 </html>
-
-<?php
-
-    if(isset($_GET['msg']))
-    {
-        if($_GET['msg'] == 'wrong_data')
-        {
-            echo '<h1>Please fill up all the form </h1>';
-        }
-    }
-
-?>
 
 <?php
 
