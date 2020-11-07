@@ -9,6 +9,8 @@ if(!isset($_SESSION['active']))
 
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +34,15 @@ if(!isset($_SESSION['active']))
                 </ul>                
             </td>
             <td>
-                <h1>Welcome <?php echo $_SESSION['name']; ?></h1>
+                Name :  <?php echo $_SESSION['name']; ?> <br>
+                Email : <?php echo $_SESSION['email']; ?>  <br>
+                Gender : <?php echo $_SESSION['gen']; ?>   <br>
+                Date Of Birth : <?php echo $_SESSION['dob']; ?>  <br>
+
+                <a href="">Edit Profile</a>
+            </td>
+            <td>
+                <input type="file" name="image" id="" value="">
             </td>
         </tr>
     </table>
