@@ -3,14 +3,15 @@
     if(isset($_POST['submit']))
     {
 
-
+        
         $name='';
         if(!empty($_POST['name']))
         {
             $name = $_POST['name'];
         }
         else{
-            header('location: registration.php?msg=null_name');
+            //header('location: registration.php?msg=null_name');
+            $name='';
         }
 
 
@@ -29,14 +30,16 @@
             else
             {
                // echo "Invalid email!";
-               header('location: registration.php?msg=invalid_name');
+               //header('location: registration.php?msg=invalid_name');
+               $email='';
             }
     
         }
         else
         {
             //echo "Email field is empty! Please enter your email!";
-            header('location: registration.php?msg=null_email');
+            //header('location: registration.php?msg=null_email');
+            $email='';
         }
         
        
@@ -63,7 +66,7 @@
                         {
                             //echo '<br>'.'Cant be any number or special Char';
                             $j = '';
-                            header('location: registration.php?msg=style_error');
+                            //header('location: registration.php?msg=style_error');
                             break;
                         }
 
@@ -73,14 +76,16 @@
                 {
 
                     //echo "Please use 1st letter betweeen A-z";
-                    header('location: registration.php?msg=style_error');
+                    //header('location: registration.php?msg=style_error');
+                    $j = '';
                 }
 
             }
             else
             {
                 //echo 'Please use at least 2 words';
-                header('location: registration.php?msg=style_error');
+                //header('location: registration.php?msg=style_error');
+                $j = '';
             }
             
 
@@ -88,7 +93,8 @@
         else
         {
             //echo "Please input your name";
-            header('location: registration.php?msg=null_user_name');
+            //header('location: registration.php?msg=null_user_name');
+            $j = '';
         }
         //echo $j.'<br>'; 
         //echo $count;
@@ -104,7 +110,8 @@
         else
         {
             //echo 'wrong password';
-            header('location: registration.php?msg=wrong_pass');
+            //header('location: registration.php?msg=wrong_pass');
+            $password='';
         }
 
 
@@ -117,7 +124,8 @@
         else
         {
             //echo "please Select gender";
-            header('location: registration.php?msg=null_gen');
+            //header('location: registration.php?msg=null_gen');
+            $gen ='';
         }
 
 
@@ -130,9 +138,25 @@
         }
         else{
             //echo 'Please Set dob';
-            header('location: registration.php?msg=null_dob,msg=jamy');
+            //header('location: registration.php?msg=null_dob');
+            $dobb ='';
         }
-        echo $gen;
+        
+        if($name!="" && $email!='' && strlen($j)==$count && $password!='' && $gen!='' && $dobb !='')
+        {
+            $_SESSION['name'] = $name;
+            $_SESSION['email'] = $email;
+            $_SESSION['un'] = $j;
+            $_SESSION['password'] = $password;
+            $_SESSION['gen'] = $gen;
+            $_SESSION['dob'] = $dobb;
+
+            header('location: login.php');
+        }
+        else
+        {
+            header('location: registration.php');
+        }
 
     }
 

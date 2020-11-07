@@ -11,7 +11,7 @@ include_once('header.html');
     <title>Log-In</title>
 </head>
 <body>
-    <form action="">
+    <form method='POST' action="logincheck.php">
         <fieldset>
             <legend>LOGIN</legend>
             <table align="center">

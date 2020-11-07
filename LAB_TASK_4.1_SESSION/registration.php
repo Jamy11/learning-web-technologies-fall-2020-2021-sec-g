@@ -2,6 +2,18 @@
 include_once('header.html');
 ?>
 
+<?php
+
+    if(isset($_GET['msg']))
+    {
+        if($_GET['msg']=='null_name' || $_GET['msg']=='invalid_name' || $_GET['msg']=='null_email' || $_GET['msg']=='style_error' || $_GET['msg']=='null_user_name' || $_GET['msg']=='wrong_pass' || $_GET['msg']=='null_gen' || $_GET['msg']=='null_dob')
+        {
+            echo "Please fill out the form".$_GET['msg'];
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,19 +79,7 @@ include_once('header.html');
 </body>
 </html>
 
-<?php
 
-    if(isset($_GET['msg']))
-    {
-        if($_GET['msg']=='null_name' || $_GET['msg']=='invalid_name' || $_GET['msg']=='null_email' || $_GET['msg']=='style_error' || $_GET['msg']=='null_user_name' || $_GET['msg']=='wrong_pass' || $_GET['msg']=='null_gen' || $_GET['msg']=='null_dob')
-        {
-            echo "Please fill out the form".$_GET['msg'];
-        }
-    }
-
-
-
-?>
 
 <?php
 
