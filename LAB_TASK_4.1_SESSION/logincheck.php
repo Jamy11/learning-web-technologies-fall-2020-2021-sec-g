@@ -3,25 +3,30 @@
     session_start();
     if(isset($_POST['submit']))
     {
+
         $logun = $_POST['logun'];
         $logpas = $_POST['logp'];
-
-        if($logun == $_SESSION['un'] && $logpas== $_SESSION['password'])
+        if(isset($_SESSION['un']) && isset($_SESSION['password']))
         {
-            $_SESSION['active'] = 'true';
-            header('location: profile_dash.php');
+            if($logun == $_SESSION['un'] && $logpas== $_SESSION['password'])
+            {
+                $_SESSION['active'] = 'true';
+                header('location: profile_dash.php');
+            }
+            else
+            {
+                header('location: login.php?msg=invalid_user');
+            }
         }
         else
         {
             header('location: login.php?msg=invalid_user');
         }
+
     }
     else
     {
-        header('location: login.php');
+       header('location: login.php');
     }
-
-
-
 
 ?>

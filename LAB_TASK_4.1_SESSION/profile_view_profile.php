@@ -1,11 +1,17 @@
 <?php
-//session_start();
-include_once('userloginheader.php');
+session_start();
+
 if(!isset($_SESSION['active']))
 {
     header('location: public.html');
 }
 
+
+?>
+
+<?php
+
+include_once('userloginheader.php');
 
 ?>
 

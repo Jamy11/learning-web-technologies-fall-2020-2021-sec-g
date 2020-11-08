@@ -1,5 +1,4 @@
 <?php
-    session_start();
     if(!isset($_SESSION['active']))
     {
         header('location: public.html');
@@ -17,7 +16,7 @@
             Logged in as 
             <a href="profile_dash.php"><?php 
             
-            echo $_SESSION['name']; 
+            echo $_SESSION['name'];
             ?></a>
             | <a href="logout.php">Log-Out</a>|
         </td>
