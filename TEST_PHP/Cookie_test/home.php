@@ -1,7 +1,7 @@
 <?php
-    session_start();
+    //session_start();
 
-    if(!isset($_SESSION['isValid']))
+    if(!isset($_COOKIE['isValid']))
     {
         header('location: login.php');
     }

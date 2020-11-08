@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
 
     if(isset($_POST['submit']))
     {
@@ -17,7 +17,8 @@
         else{
 			if($u == $p){
                 //echo "valid user!";
-                $_SESSION['isValid'] = 'true';
+                //$_SESSION['isValid'] = 'true';
+                setcookie('isValid','true',time()+3600,'/');
 				header('location: home.php');
 
 			}else{
