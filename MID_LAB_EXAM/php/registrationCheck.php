@@ -48,27 +48,36 @@
             $_SESSION['pas'] = $pas;
             $_SESSION['name'] = $name;
             $_SESSION['user'] =$user;
+            
+
+            $file = 'log.txt';
+            $current = file_get_contents($file);
+            $add = $id.' '.$pas.' '.$name.' '.$user;
+            $current .= $add;
+            $current .= $add."\n";
+            file_put_contents($file, $current);
+            echo 'done';
         }
         else
         {
-
+            echo 'fill';
         }
 
     }
     else
     {
-
+        echo 'submit';
     }
     
 
     //fclose($myfile);
     
-    $file = 'log.txt';
+    //$file = 'log.txt';
     // Open the file to get existing content
-    $current = file_get_contents($file);
+    //$current = file_get_contents($file);
     // Append a new person to the file
-    $current .= "John Smith\n";
+    //$current .= "John Smith\n";
     // Write the contents back to the file
-    file_put_contents($file, $current);
+    //ile_put_contents($file, $current);
 
 ?>
