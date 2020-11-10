@@ -14,14 +14,33 @@
             //$data = fgets($myfile);
             // /echo $data;
             
-            $i =0;
+           
             while($data = fgets($myfile)){
-                $test[i] = explode(" ",$data);
-                echo $test . "<br>";
-                $i++;
+                $test = explode(" ",$data);
+               
+               if($_POST['uid'] == $test[0] && $_POST['upas'] == $test[1] )
+               {
+                $_SESSION['id'] = $test[0];
+                $_SESSION['pas'] = $test[1];
+                $_SESSION['name'] = $test[2];
+                $_SESSION['user'] = $test[3];
+                
+                if($_SESSION['user']=="User")
+                {
+                    header('location: ../views/view_users.html');
+                }
+
+                else {
+                    header('location: ../views/admin_home.html');
+                }
+
+                
+               }
+               
             }
         }
-        else {
+        else 
+        {
             echo "fill";
         }
     
