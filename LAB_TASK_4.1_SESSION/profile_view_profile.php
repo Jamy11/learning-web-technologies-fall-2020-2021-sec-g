@@ -5,15 +5,11 @@ if(!isset($_SESSION['active']))
 {
     header('location: public.html');
 }
-
-
-?>
-
-<?php
-
 include_once('userloginheader.php');
 
 ?>
+
+
 
 
 
