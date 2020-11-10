@@ -52,9 +52,8 @@
 
             $file = 'log.txt';
             $current = file_get_contents($file);
-            $add = $id.' '.$pas.' '.$name.' '.$user;
+            $add = $id.' '.$pas.' '.$name.' '.$user.'\n';
             $current .= $add;
-            $current .= $add."\n";
             file_put_contents($file, $current);
             echo 'done';
         }
