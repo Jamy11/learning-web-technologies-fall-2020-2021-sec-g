@@ -3,7 +3,7 @@
 	$location 	= 'localhost';
 	$dbuser		= 'root';
 	$dbpass		= '';
-	$database	= 'teacher'; 
+	$database	= 'test'; 
 
 	function getConnection(){
 		
