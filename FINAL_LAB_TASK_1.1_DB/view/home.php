@@ -2,6 +2,7 @@
 <?php
 	include('header.php');
 	require_once('../db/db.php');
+	define('Delete', TRUE);
 
 	$conn = getConnection();
 	$sql = 'select * from user';
@@ -43,7 +44,7 @@
 				<td><?=$data['type']?></td>
 				<?php $id = $data['id'] ?>;
 				<td><a href="edit.php?msg=<?php echo urlencode($id)?>">Edit</a></td>
-				<td><a href="delete.php">Delete</a></td>
+				<td><a href="../php/delete.php?msg=<?php echo urlencode($id)?>">Delete</a></td>
 			</tr>
 	<?php } ?>
 
