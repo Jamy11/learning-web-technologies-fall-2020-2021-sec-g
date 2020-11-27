@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "tset";
+$dbname = "test";
 
 function getConnection()
 {
@@ -11,6 +11,14 @@ function getConnection()
 	global $username;
 	global $password;
 	global $dbname;
+
+	$conn = mysqli_connect($servername,$username,$password,$dbname);
+
+	if ($conn->connect_error) 
+	{
+		die("Connection failed: " . $conn->connect_error);
+	}
+	return $conn;
 }
 
 ?>

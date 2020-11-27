@@ -20,10 +20,9 @@
 		}else{
 
 			$conn = getConnection();
-			$sql = "select * from users where username='$uname' and password='$pass'";
-			$result = mysqli_query($conn, $sql);
+			$sql = "select * from user where username='$uname' and password ='$pass' ";
+			$result = mysqli_query($conn,$sql);
 			$row = mysqli_fetch_assoc($result);
-
 			if(count($row) > 0){
 				setcookie('isValid', 'true', time()+3600, '/');
 				header('location: ../view/home.php');
