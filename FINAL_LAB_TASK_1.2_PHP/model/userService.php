@@ -15,6 +15,22 @@
 		}
 
 		return $users;
+    }
+    
+    function updateUser($user){
+
+		$conn = getConnection();
+        $sql = "update user set e_name='{$user[0]}', 
+        com_name='{$user[1]}', con_no='{$user[2]}', 
+        password='{$user[4]} WHERE id = '{$user[3]}'";
+
+		$status = mysqli_query($conn, $sql);
+		
+		if($status){
+			return true; 
+		}else{
+			return false;
+		}
 	}
 
 

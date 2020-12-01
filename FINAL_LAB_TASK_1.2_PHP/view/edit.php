@@ -81,4 +81,24 @@ $un = $_GET['msg'];
 
 
 
+if(isset($_POST['submit']))
+{
+    $arr = [$_POST['e_name'],$_POST['com_name'],$_POST['con_no'],$un,$_POST['pass']];
+    $status = updateUser($arr);
+
+    if($status == TRUE)
+    {
+        
+        header('location: home.php');
+    }
+    else
+    {
+        echo 'wrong data type';
+    }
+}
+else
+{
+
+}
+
 ?>
