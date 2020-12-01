@@ -83,9 +83,16 @@ $un = $_GET['msg'];
 
 if(isset($_POST['submit']))
 {
-    $arr = [$_POST['e_name'],$_POST['com_name'],$_POST['con_no'],$un,$_POST['pass']];
-    $status = updateUser($arr);
+    //$arr = [$_POST['e_name'],$_POST['com_name'],$_POST['con_no'],$un,$_POST['pass']];
 
+    $user = ['e_name'=>  $_POST['e_name'], 'com_name'=>$_POST['com_name'],
+    'con_no'=> $_POST['con_no'], 
+    'username'=> $un, 'password'=>$_POST['pass'] ];
+
+
+    $status = updateUser($user);
+
+    //print_r($user);
     if($status == TRUE)
     {
         
@@ -98,7 +105,7 @@ if(isset($_POST['submit']))
 }
 else
 {
-
+    echo 'wrong data';
 }
 
 ?>
