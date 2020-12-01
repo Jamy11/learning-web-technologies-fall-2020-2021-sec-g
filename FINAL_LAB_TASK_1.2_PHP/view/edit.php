@@ -10,10 +10,30 @@
         <table>
             <tr>
                 <td>
-                    Username :
+                    Employee Name :
                 </td>
                 <td>
-                    <input type="text" name="username" id="">
+                    <input type="text" name="e_name" id="">
+                </td>
+            </tr>           
+            
+            
+            <tr>
+                <td>
+                    Company Name :
+                </td>
+                <td>
+                    <input type="text" name="com_name" id="">
+                </td>
+            </tr>
+
+
+            </tr>           <tr>
+                <td>
+                    Contact No :
+                </td>
+                <td>
+                    <input type="text" name="con_no" id="">
                 </td>
             </tr>
 
@@ -27,15 +47,6 @@
                 </td>
             </tr>
 
-
-            <tr>
-                <td>
-                    E-mail :
-                </td>
-                <td>
-                    <input type="text" name="email" id="">
-                </td>
-            </tr>
 
             <tr>
                 <td>
@@ -60,36 +71,14 @@
 $value =$_GET['msg'];
 
 
-require_once('../db/db.php');
-$conn = getconnection();
+require_once('../model/userService.php');
 
 
 
 // $result = mysqli_query($conn , $sql);
 // $data = mysqli_fetch_assoc($result);
+$un = $_GET['msg'];
 
 
-
-if(isset($_POST['submit']))
-{
-    $username = $_POST['username'];
-    $pas = $_POST['pass'];
-    $email = $_POST['email'];   
-    if($username!= '' && $pas!='' && $email!='')
-    {
-        $sql = "UPDATE user
-        SET username = '$username', password = '$pas', email= '$email'
-        WHERE id = '$value'";
-        mysqli_query($conn , $sql);
-        $conn->close();
-        echo 'connction stablished';
-        header('location: home.php');
-        exit();
-    }
-    else
-    {
-        echo 'Fill the form';
-    }
-}
 
 ?>
