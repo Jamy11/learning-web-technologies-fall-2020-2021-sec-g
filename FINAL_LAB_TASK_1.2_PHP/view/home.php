@@ -1,7 +1,7 @@
 
 <?php
 	include('header.php');
-	require_once('../db/db.php');
+	require_once('../model/db.php');
 	define('Delete', TRUE);
 
 	$conn = getConnection();
