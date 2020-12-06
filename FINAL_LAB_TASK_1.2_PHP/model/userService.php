@@ -40,9 +40,9 @@
         // 'username'=> $un, 'password'=>$_POST['pass'] ];
 
 		$conn = getConnection();
-        $sql = "UPDATE user SET e_name='{$user['usee_namername']}', 
+        $sql = "UPDATE user SET e_name='{$user['e_name']}', 
         com_name='{$user['com_name']}', con_no='{$user['con_no']}', 
-        password='{$user['pass']}' WHERE id = '{$user['username']}' ";
+        password='{$user['password']}' WHERE id = '{$user['username']}' ";
 
 		$status = mysqli_query($conn, $sql);
 		

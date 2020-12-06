@@ -64,12 +64,13 @@ if(isset($_POST['submit']))
 {
     require_once('../db/db.php');
     $conn = getConnection();
+ 
     $username = $_POST['username'];
     $pas = $_POST['pass'];
     $email = $_POST['email'];   
     if($username!= '' && $pas!='' && $email!='')
     {
-
+   
         $sql = "UPDATE user
         SET username = '$username', password = '$pas', email= '$email'
         WHERE id = '$value'";

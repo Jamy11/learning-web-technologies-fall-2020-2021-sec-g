@@ -92,7 +92,7 @@ if(isset($_POST['submit']))
 
     $status = updateUser($user);
 
-    //print_r($user);
+    print_r($user);
     if($status == TRUE)
     {
         
@@ -105,7 +105,7 @@ if(isset($_POST['submit']))
 }
 else
 {
-    echo 'wrong data';
+
 }
 
 ?>
