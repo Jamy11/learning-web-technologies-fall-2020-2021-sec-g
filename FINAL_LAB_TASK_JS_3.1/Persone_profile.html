@@ -7,7 +7,7 @@
 </head>
 <body>
     <table border="1">
-        <form action="">
+        <form action="" onsubmit='return formvalidation()'>
             <tr>
                 <td colspan="2">
                    <h1>Persone Profile</h1> 
@@ -34,9 +34,9 @@
                     Gender
                 </td>
                 <td>
-                    <input type="radio" name="gender" id="gender" value="Male"> Male 
-                <input type="radio" name="gender" id="gender" value="Female" > Female
-                <input type="radio" name="gender" id="gender" value="Other" > Other <br>
+                    <input type="radio" name="gender" id="gender1" value="Male"> Male 
+                <input type="radio" name="gender" id="gender2" value="Female" > Female
+                <input type="radio" name="gender" id="gender3" value="Other" > Other <br>
                 </td>
             </tr>
             <tr>
@@ -66,9 +66,9 @@
                     Degree
                 </td>
                 <td>
-                    <input type="checkbox" name="deg" id="deg"> SSC
-                    <input type="checkbox" name="deg" id="deg"> HSC
-                    <input type="checkbox" name="deg" id="deg"> BSc
+                    <input type="checkbox" name="deg" id="deg1"> SSC
+                    <input type="checkbox" name="deg" id="deg2"> HSC
+                    <input type="checkbox" name="deg" id="deg3"> BSc
                 </td>
             </tr>
             <tr>
