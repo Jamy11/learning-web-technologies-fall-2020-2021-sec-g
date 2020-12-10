@@ -15,6 +15,11 @@
 	<title>Profile</title>
 </head>
 <body>
+<a href="home.php">Home</a> |
+	<a href="create.php">Create New User</a> |
+	<a href="profile.php">Profile</a> |
+	<a href="userlist.php">User List</a> |
+	<a href="../php/logout.php">logout</a>
 	<h1>This is profile page</h1>
 
 	<img src="../assets/<?=$img?>" width="100px" height="100px"/>

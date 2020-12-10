@@ -2,9 +2,10 @@
 <?php
 	include('header.php');
 	require_once('../model/userService.php');
-	$userlist = getAllUser();
-
+	
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -14,43 +15,69 @@
 </head>
 <body>
 	<h1>Welcome home, </h1>
+	<a href="home.php">Home</a> |
 	<a href="create.php">Create New User</a> |
 	<a href="profile.php">Profile</a> |
 	<a href="userlist.php">User List</a> |
 	<a href="../php/logout.php">logout</a>
 
-	<h3>User list</h3>
-	<table border="1"> 
-		<tr>
-			<td>ID</td>
-			<td>USERNAME</td>
-			<td>PASSWORD</td>
-			<td>EMAIL</td>
-			<td>TYPE</td>
-			<td>Edit</td>
-			<td>Delete</td>
-		</tr>
+<hr>
 
-		<?php for($i=0; $i< count($userlist); $i++){ 
-			$un = $userlist[$i]['username'];
-			?>
-
+	<form action="" method="POST">
+		<table>
 			<tr>
-				<td><?=$userlist[$i]['e_name']?></td>
-				<td><?=$userlist[$i]['com_name']?></td>
-				<td><?=$userlist[$i]['con_no']?></td>
-				<td><?=$userlist[$i]['username']?></td>
-				<td><?=$userlist[$i]['password']?></td>
-
-				<td><a href="edit.php?msg=<?php echo urlencode($un)?>">Edit</a></td>
-				<td><a href="../php/delete.php?msg=<?php echo urlencode($un)?>">Delete</a></td>
+				<td>
+					<input type="text" name='search_box'>
+				</td>
+				<td>
+					<input type="submit" name='submit' value='Search'>
+				</td>
 			</tr>
-	<?php } ?>
+		</table>
+	</form>
+	<?php
 
+if(isset($_POST['submit']))
+{
+	if(!empty($_POST['search_box']))
+	{
+		$userlist = searchUser($_POST['search_box']);
+		//print_r($userlist);
+	}
+	else
+	{
+		echo 'Search with a valid name....';
+	}
+}
+
+?>
+	<hr>
+
+	<table border='1px'>
+		<tr>
+			<th>
+				Employee Name
+			</th>
+			<th>
+				Company Name
+			</th>
+			<th>
+				Contact Name
+			</th>
+			<th>
+				Username
+			</th>
+		</tr>
+		<tr>
+			
+			<td><?php if(isset($_POST['submit'])) {echo $userlist['e_name'];}?></td>
+			<td><?php if(isset($_POST['submit'])) {echo $userlist['com_name'];}?></td>
+			<td><?php if(isset($_POST['submit'])) {echo $userlist['con_no'];}?></td>
+			<td><?php if(isset($_POST['submit'])) {echo $userlist['username'];}?></td>
+			
+		</tr>
 	</table>
 
 
 </body>
 </html>
-
-

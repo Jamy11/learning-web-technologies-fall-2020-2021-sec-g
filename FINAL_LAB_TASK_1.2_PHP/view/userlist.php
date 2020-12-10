@@ -1,21 +1,21 @@
 <?php
 	include('header.php');
-	require_once('../db/db.php');
+	require_once('../model/userService.php');
+	$userlist = getAllUser();
 
-	$conn = getConnection();
-	$sql = 'select * from users';
-	$result = mysqli_query($conn, $sql);
 ?>
-
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>User List</title>
+	<title> Home Page</title>
 </head>
 <body>
-	
-	<a href="home.php">Back</a> |
+	<h1>Welcome home, </h1>
+	<a href="home.php">Home</a> |
+	<a href="create.php">Create New User</a> |
+	<a href="profile.php">Profile</a> |
+	<a href="userlist.php">User List</a> |
 	<a href="../php/logout.php">logout</a>
 
 	<h3>User list</h3>
@@ -26,27 +26,30 @@
 			<td>PASSWORD</td>
 			<td>EMAIL</td>
 			<td>TYPE</td>
-			<td>ACTION</td>
+			<td>Edit</td>
+			<td>Delete</td>
 		</tr>
 
-	<?php while($data = mysqli_fetch_assoc($result)){ ?>
+		<?php for($i=0; $i< count($userlist); $i++){ 
+			$un = $userlist[$i]['username'];
+			?>
 
 			<tr>
-				<td><?=$data['id']?></td>
-				<td><?=$data['username']?></td>
-				<td><?=$data['password']?></td>
-				<td><?=$data['email']?></td>
-				<td><?=$data['type']?></td>
-				<td>
-					<a href="edit.php?id=<?=$data['id']?>">EDIT</a> | 
-					<a href="delete.php?id=<?=$data['id']?>">DELETE</a>
-				</td>
+				<td><?=$userlist[$i]['e_name']?></td>
+				<td><?=$userlist[$i]['com_name']?></td>
+				<td><?=$userlist[$i]['con_no']?></td>
+				<td><?=$userlist[$i]['username']?></td>
+				<td><?=$userlist[$i]['password']?></td>
+
+				<td><a href="edit.php?msg=<?php echo urlencode($un)?>">Edit</a></td>
+				<td><a href="../php/delete.php?msg=<?php echo urlencode($un)?>">Delete</a></td>
 			</tr>
+			
 	<?php } ?>
 
 	</table>
 
+
 </body>
 </html>
-
 
