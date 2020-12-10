@@ -10,10 +10,12 @@ function formvalidation()
     if(name == true && email == true && gender == true && dob == true && blood == true && degree == true)
     {
         alert('All done');
+        return true;
     }
     else
     {
         alert('Try again');
+        return false;
     }
 
 }
