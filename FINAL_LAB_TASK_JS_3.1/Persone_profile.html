@@ -9,7 +9,7 @@
     <table border="1">
         <form action="" onsubmit='return formvalidation()'>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                    <h1>Persone Profile</h1> 
                 </td>
             </tr>
@@ -20,13 +20,23 @@
                 <td>
                     <input type="text" name="name" id="name">
                 </td>
+                <td width="100px" style="color: red;">
+                    <div id="nameDiv">
+
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>
                     Email
                 </td>
                 <td>
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="email" id="email" onkeyup="checkEmail()">
+                </td>
+                <td width="100px" style="color: red;">
+                    <div id="emailDiv">
+
+                    </div>
                 </td>
             </tr>
             <tr>

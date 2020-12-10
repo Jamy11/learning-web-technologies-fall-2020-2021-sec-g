@@ -30,17 +30,43 @@ function checkName()
     }
 }
 
+// function checkEmail()
+// {
+//     let obj = document.getElementById('email').value;
+//     if(obj != '')
+//     {
+//         return true;
+//     }
+//     else{
+//         return false;
+//     }
+// }
+
 function checkEmail()
 {
-    let obj = document.getElementById('email').value;
-    if(obj != '')
+    let email = document.getElementById("email").value;
+
+    if (email == "")
     {
-        return true;
-    }
-    else{
+        document.getElementById("emailDiv").innerHTML = "*required";
         return false;
     }
+
+    var at = email.indexOf("@");
+    var dot = email.lastIndexOf("\.");
+    if (!(email.length > 0 && at > 0 && email[at + 1] !== "." && dot > at + 1 && dot < email.length && email.indexOf(" ") === -1 && email.indexOf("..") === -1))
+    {
+        document.getElementById("emailDiv").innerHTML = "*invalid";
+        return false;
+    }
+    else
+    {
+        document.getElementById("emailDiv").innerHTML = "*Valid";
+        return true; 
+    }
+
 }
+
 
 function checkGender()
 {
@@ -128,3 +154,5 @@ function checkDegree()
         return false;
     }
 }
+
+
