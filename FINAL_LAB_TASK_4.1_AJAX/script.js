@@ -84,7 +84,7 @@ function checkEmail()
         document.getElementById("emailDiv").innerHTML = "*Valid";
         return true; 
     }
-
+  
 }
 
 
