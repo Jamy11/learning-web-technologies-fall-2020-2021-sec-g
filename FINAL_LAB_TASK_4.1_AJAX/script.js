@@ -1,20 +1,6 @@
 
 // ajax part
-function test(){
-	
-	var name = document.getElementById('name').value;
-	var xhttp = new XMLHttpRequest();
-	xhttp.open('GET', 'abc.php?myname='+name, true);
-	xhttp.send();
-	//document.getElementById('h').innerHTML = xhttp.responseText;
-	xhttp.onreadystatechange = function(){
 
-		if(this.readyState == 4 && this.status == 200){
-			//alert(this.responseText);
-			document.getElementById('com').innerHTML = this.responseText;
-		}
-	}
-}
 
 function formvalidation()
 {
@@ -27,12 +13,26 @@ function formvalidation()
 
     if(name == true && email == true && gender == true && dob == true && blood == true && degree == true)
     {
-        alert('All done');
+         //var name = document.getElementById('name').value;
+        //document.getElementById('com').write(hello);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('POST', 'abc.php', true);
+
+        //document.getElementById('h').innerHTML = xhttp.responseText;
+        xhttp.onreadystatechange = function(){
+
+            if(this.readyState == 4 && this.status == 200){
+                //alert(this.responseText);
+                document.getElementById('com').innerHTML = this.responseText;
+                //console.log(this.responseText);
+            }
+        }
+        xhttp.send();
         return true;
     }
     else
     {
-        alert('Try again');
+        //alert('Try again');
         return false;
     }
 
@@ -174,5 +174,6 @@ function checkDegree()
         return false;
     }
 }
+
 
 

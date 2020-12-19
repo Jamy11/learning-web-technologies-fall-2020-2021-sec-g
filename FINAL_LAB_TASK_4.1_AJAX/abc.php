@@ -1,8 +1,10 @@
 <?php
 
     //sleep(3);
-        $val = $_GET['myname'];
+    //$val = $_GET['myname'];
 
-    echo 'Registration Successful';
+    require_once('db.php');
+
+    echo 'registration su';
 
 ?>
