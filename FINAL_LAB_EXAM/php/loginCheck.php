@@ -29,6 +29,6 @@ if(isset($_POST['submit']))
 else
 {
     header('../index.html');
-}
+}  
 
 ?>
