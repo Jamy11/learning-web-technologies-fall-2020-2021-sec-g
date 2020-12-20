@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
 
     if($status)
     {
-        header('location: home.php');
+        header('location: ../view/home.php');
     }
     else
     {
