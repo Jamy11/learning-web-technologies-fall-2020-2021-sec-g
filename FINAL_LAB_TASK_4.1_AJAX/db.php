@@ -49,7 +49,7 @@ function checkUniqe($email)
 }
 
 
-function insertionEmail()
+function insertionEmail($email)
 {
     $conn = getConnection();
 

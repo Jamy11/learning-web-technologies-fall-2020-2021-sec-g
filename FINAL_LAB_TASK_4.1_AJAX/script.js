@@ -1,43 +1,6 @@
 
 // ajax part
 
-
-function formvalidation()
-{
-    let name = checkName();
-    let email = checkEmail();
-    let gender = checkGender();
-    let dob = checkDob();
-    let blood = checkBlood();
-    let degree = checkDegree();
-
-    if(name == true && email == true && gender == true && dob == true && blood == true && degree == true)
-    {
-         //var name = document.getElementById('name').value;
-        //document.getElementById('com').write(hello);
-        var xhttp = new XMLHttpRequest();
-        xhttp.open('POST', 'abc.php', true);
-
-        //document.getElementById('h').innerHTML = xhttp.responseText;
-        xhttp.onreadystatechange = function(){
-
-            if(this.readyState == 4 && this.status == 200){
-                //alert(this.responseText);
-                document.getElementById('com').innerHTML = this.responseText;
-                //console.log(this.responseText);
-            }
-        }
-        xhttp.send();
-        return true;
-    }
-    else
-    {
-        //alert('Try again');
-        return false;
-    }
-
-}
-
 function checkName()
 {
     let obj = document.getElementById('name').value;
@@ -81,7 +44,7 @@ function checkEmail()
     }
     else
     {
-        document.getElementById("emailDiv").innerHTML = "*Valid";
+        //document.getElementById("emailDiv").innerHTML = "*Valid";
         return true; 
     }
   
@@ -175,5 +138,76 @@ function checkDegree()
     }
 }
 
+function checkEmailUniqe()
+{
+    let ue = document.getElementById('email').value;
+
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.open('POST', 'abc.php', true);
+
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 400){
+            //document.getElementById('emailDiv ').innerHTML= this.responseText;
+            if(this.responseText == 'exist')
+            {
+                document.getElementById('emailDiv').innerHTML = 'Email Exist';
+                console.log('email ase');
+            }
+            else{
+                document.getElementById('emailDiv').innerHTML = 'Done';
+                console.log('done');
+            }
+        }
+    }
+    xhttp.send("email="+ue);
+
+}
+
+function formvalidation()
+{
+    let name = checkName();
+    let email = checkEmail();
+    let gender = checkGender();
+    let dob = checkDob();
+    let blood = checkBlood();
+    let degree = checkDegree();
+
+    if(name == true && email == true && gender == true && dob == true && blood == true && degree == true)
+    {
+        let ue = document.getElementById('email').value;
+        let ediv = document.getElementById('emailDiv').innerHTML;
+        if(ediv == 'Done' )
+        {
+            
+        
+        
+
+        let xhttp = new XMLHttpRequest();
+        xhttp.open('POST', 'abc.php', true);
+
+        xhttp.onreadystatechange = function(){
+
+            if(this.readyState == 4 && this.status == 200){
+             
+               // document.getElementById('com').innerHTML = this.responseText;
+            }
+        }
+        xhttp.send('data'+ue);
+        console.log('return true');
+        return true;
+        }
 
 
+        else{
+            console.log('return false');
+            return false;
+        }
+    }
+    else
+    {
+        //alert('Try again');
+        return false;
+    }
+
+}
