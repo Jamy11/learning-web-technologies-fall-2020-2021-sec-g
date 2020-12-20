@@ -16,6 +16,25 @@
 			return false;
 		}
 	}
+	
+	function insertUser($user)
+	{
+		$conn = getConnection();
+		$sql = "INSERT INTO user
+		VALUES ('{$user['e_name']}', '{$user['con_no']}', 
+		'{$user['username']}', '{$user['password']}' )";
+
+		$status = mysqli_query($conn,$sql);
+
+		if($status)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
     
     
 
