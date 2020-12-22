@@ -6,10 +6,11 @@
     require_once('db.php');
 
     //echo 'registration su';
-
+   // echo $_POST['email'];
     if(isset($_POST['email']))
     {
-        //if(checkUniqe($_POST['email']))
+        //echo $_POST['email'];
+        if(checkUniqe($_POST['email']))
         {
             echo "exist";
             

@@ -31,7 +31,7 @@ function checkUniqe($email)
 {
     $conn = getConnection();
 
-    $sql = "SELECT * FROM check WHERE email = '$email'"; 
+    $sql = "SELECT * FROM check_mail WHERE email = '$email'"; 
 
     if($result = mysqli_query($conn,$sql)){
 
@@ -53,7 +53,7 @@ function insertionEmail($email)
 {
     $conn = getConnection();
 
-    $sql = "INSERT INTO check (email) VALUES ('$email')";
+    $sql = "INSERT INTO check_mail VALUES ('$email')";
     
     if(mysqli_query($conn,$sql))
     {

@@ -1,5 +1,6 @@
 
 // ajax part
+let haserror ;
 
 function checkName()
 {
@@ -9,6 +10,7 @@ function checkName()
         return true;
     }
     else{
+        haserror = true;
         return false;
     }
 }
@@ -32,6 +34,7 @@ function checkEmail()
     if (email == "")
     {
         document.getElementById("emailDiv").innerHTML = "*required";
+        haserror = true;
         return false;
     }
 
@@ -40,11 +43,13 @@ function checkEmail()
     if (!(email.length > 0 && at > 0 && email[at + 1] !== "." && dot > at + 1 && dot < email.length && email.indexOf(" ") === -1 && email.indexOf("..") === -1))
     {
         document.getElementById("emailDiv").innerHTML = "*invalid";
+        haserror = true;
         return false;
     }
     else
     {
-        //document.getElementById("emailDiv").innerHTML = "*Valid";
+        document.getElementById("emailDiv").innerHTML = "*Valid";
+        mailcheck = true;
         return true; 
     }
   
@@ -79,6 +84,7 @@ function checkGender()
         return true;
     }
     else{
+        haserror = true;
         return false;
     }
 }
@@ -91,6 +97,7 @@ function checkDob()
         return true;
     }
     else{
+        haserror = true;
         return false;
     }
 }
@@ -103,6 +110,7 @@ function checkBlood()
         return true;
     }
     else{
+        haserror = true;
         return false;
     }
 }
@@ -134,33 +142,46 @@ function checkDegree()
         return true;
     }
     else{
+        haserror = true;
         return false;
     }
 }
-
+let checkk;
 function checkEmailUniqe()
 {
-    let ue = document.getElementById('email').value;
+    let mailcheck = checkEmail();
+    if(mailcheck)
+    {
+        let ue = document.getElementById('email').value;
 
-    let xhttp = new XMLHttpRequest();
+        let xhttp = new XMLHttpRequest();
+    
+        xhttp.open('POST', 'abc.php', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                //document.getElementById('emailDiv').innerHTML= this.responseText;
+                if(this.responseText == 'exist')
+                {
+                    document.getElementById('emailDiv').innerHTML = 'Email Exist';
+                    //console.log('email ase');
+                    checkk = false;
+                }
+                else{
+                    document.getElementById('emailDiv').innerHTML = 'Ready to use';
+                    //console.log('done');
+                    checkk = true;
 
-    xhttp.open('POST', 'abc.php', true);
-
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 400){
-            //document.getElementById('emailDiv ').innerHTML= this.responseText;
-            if(this.responseText == 'exist')
-            {
-                document.getElementById('emailDiv').innerHTML = 'Email Exist';
-                console.log('email ase');
-            }
-            else{
-                document.getElementById('emailDiv').innerHTML = 'Done';
-                console.log('done');
+                }
             }
         }
+        xhttp.send("email="+ue);
     }
-    xhttp.send("email="+ue);
+    else
+    {
+        checkk = false;
+    }
+    
 
 }
 
@@ -172,41 +193,38 @@ function formvalidation()
     let dob = checkDob();
     let blood = checkBlood();
     let degree = checkDegree();
+    //let mailCheck = checkEmailUniqe();
 
-    if(name == true && email == true && gender == true && dob == true && blood == true && degree == true)
+    if(name == true && email == true && gender == true && dob == true && blood == true && degree == true && checkk==true)
     {
-        let ue = document.getElementById('email').value;
-        let ediv = document.getElementById('emailDiv').innerHTML;
-        if(ediv == 'Done' )
-        {
-            
         
+        let ue = document.getElementById('email').value;
         
 
         let xhttp = new XMLHttpRequest();
         xhttp.open('POST', 'abc.php', true);
-
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange = function(){
 
             if(this.readyState == 4 && this.status == 200){
-             
-               // document.getElementById('com').innerHTML = this.responseText;
+                console.log('inserted');
+               document.getElementById('com').innerHTML = this.responseText;
             }
         }
-        xhttp.send('data'+ue);
+        xhttp.send('data='+ue);
         console.log('return true');
         return true;
-        }
+        
 
 
-        else{
-            console.log('return false');
-            return false;
-        }
+        // else{
+        //     console.log('return false');
+        //     return false;
+        // }
     }
     else
     {
-        //alert('Try again');
+        alert('Try again');
         return false;
     }
 
